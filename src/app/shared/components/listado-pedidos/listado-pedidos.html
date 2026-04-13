@@ -1,0 +1,14 @@
+
+  <h3>{{ titulo() }}</h3>
+
+  @for (item of pedidoService.pedidos(); track $index) {
+    <div class="pedido-item">
+      <div style="font-weight: 600;">Nombre: {{ item.nombre }}</div>
+      <div>Precio: <span style="color: blue; font-weight: 600;">{{ item.precio }}</span></div>
+      <div>Fecha: {{ item.fecha }}</div>
+      <div>Stock: {{ item.stock ? 'Sí' : 'No' }}</div>
+      <div>Descripción: {{ item.descripcion }}</div>
+      <div>Cantidad: {{ item.cantidad }}</div>
+    </div>
+    <hr>
+  }

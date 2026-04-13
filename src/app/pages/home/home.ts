@@ -3,10 +3,11 @@ import { RouterLink } from "@angular/router";
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Pedido } from '../../models/interfaces';
 import { PedidoService } from '../../services/pedido.service';
+import { ListadoPedidos } from '../../shared/components/listado-pedidos/listado-pedidos';
 
 @Component({
   selector: 'app-home',
-  imports: [RouterLink, ReactiveFormsModule],
+  imports: [RouterLink, ReactiveFormsModule, ListadoPedidos],
   templateUrl: './home.html',
   styleUrl: './home.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
