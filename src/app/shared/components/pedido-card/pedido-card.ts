@@ -13,6 +13,8 @@ export class PedidoCard {
   item = input<Pedido>();
   $index = input<number>();
 
+  showEditarButton = input<boolean>(true);
+
   onELiminarCLicked = output<number>();
   onEditarCLicked = output<number>();
 

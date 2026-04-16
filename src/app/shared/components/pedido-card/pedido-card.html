@@ -8,6 +8,8 @@
 </div>
 <div>
   <button (click)="eliminarPedido($index())">Eliminar</button>
-  <button (click)="editarPedido($index())">Editar</button>
+  @if (showEditarButton()) {
+    <button (click)="editarPedido($index())">Editar</button>
+  }
 </div>
 <hr>
