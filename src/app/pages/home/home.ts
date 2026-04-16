@@ -1,14 +1,15 @@
 import { Component, signal, computed, ChangeDetectionStrategy, inject } from '@angular/core';
-import { Router, RouterLink } from "@angular/router";
+import { Router } from "@angular/router";
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Pedido } from '../../models/interfaces';
 import { PedidoService } from '../../services/pedido.service';
-import { ListadoPedidos } from '../../shared/components/listado-pedidos/listado-pedidos';
 import { AuthService } from '../../services/auth';
+import { Header } from "../../shared/components/header/header";
+import { PedidoCard } from '../../shared/components/pedido-card/pedido-card';
 
 @Component({
   selector: 'app-home',
-  imports: [RouterLink, ReactiveFormsModule, ListadoPedidos],
+  imports: [ReactiveFormsModule, Header, PedidoCard],
   templateUrl: './home.html',
   styleUrl: './home.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -66,9 +67,12 @@ export class Home {
     this.loading.set(false);
   }
 
-  logout() {
-    this.authService.logout();
-    this.router.navigateByUrl('/login', { replaceUrl: true });
+  eliminarItem(index: number) {
+    console.log('Eliminar pedido en la página home en index:', index);
+  }
+
+  editarItem(index: number) {
+    console.log('Editar pedido en la página home en index:', index);
   }
 
 }

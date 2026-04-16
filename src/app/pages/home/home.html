@@ -1,10 +1,4 @@
-<h1>Home</h1>
-
-<a [routerLink]="'/about'">Ves a about</a>
-
-<a [routerLink]="'/carrito'">Go to carrito</a>
-
-<a (click)="logout()">Logout</a>
+<app-header [titulo]="'Home'"></app-header>
 
 <h2>Signal básico</h2>
 
@@ -47,6 +41,13 @@
 
   <button type="button" (click)="addPedido()">Añadir</button>
 
-  <app-listado-pedidos [titulo]="'Listado de Pedidos'"></app-listado-pedidos>
+
+  <h3>Listado</h3>
+
+  @for (item of pedidoService.pedidos(); track $index) {
+    <app-pedido-card [item]="item" [$index]="$index"
+      (onEditarCLicked)="editarItem($index)"
+      (onELiminarCLicked)="eliminarItem($index)"></app-pedido-card>
+  }
 
 </form>

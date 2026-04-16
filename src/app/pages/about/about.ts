@@ -1,21 +1,14 @@
-import { Component, inject } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
-import { AuthService } from '../../services/auth';
+import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { Header } from "../../shared/components/header/header";
 
 @Component({
   selector: 'app-about',
-  imports: [RouterLink],
+  imports: [RouterLink, Header],
   templateUrl: './about.html',
   styleUrl: './about.scss',
 })
+
 export class About {
-
-  authService = inject(AuthService);
-  router = inject(Router);
-
-  logout() {
-    this.authService.logout();
-    this.router.navigateByUrl('/login', { replaceUrl: true });
-  }
 
 }

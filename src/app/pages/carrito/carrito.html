@@ -1,11 +1,9 @@
-<h1>Carrito</h1>
-
-<a [routerLink]="'/about'">Ves a about</a>
-
-<a [routerLink]="'/carrito'">Go to carrito</a>
-
-<a (click)="logout()">Logout</a>
+<app-header [titulo]="'Carrito'"></app-header>
 
 <abbr title="Carrito de compras">Carrito</abbr>
 
-<app-listado-pedidos [titulo]="'Carrito'"></app-listado-pedidos>
+@for (item of pedidoService.pedidos(); track $index) {
+<app-pedido-card [item]="item" [$index]="$index"
+      (onEditarCLicked)="editarItem($index)"
+      (onELiminarCLicked)="eliminarItem($index)"></app-pedido-card>
+}
