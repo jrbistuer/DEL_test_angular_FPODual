@@ -7,10 +7,14 @@ import { AuthService } from '../../services/auth';
 import { Header } from "../../shared/components/header/header";
 import { PedidoCard } from '../../shared/components/pedido-card/pedido-card';
 import { TranslateDirective } from "@ngx-translate/core";
+import {MatInputModule, MatLabel} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @Component({
   selector: 'app-home',
-  imports: [ReactiveFormsModule, Header, PedidoCard, TranslateDirective],
+  imports: [ReactiveFormsModule, Header, PedidoCard, TranslateDirective,
+    MatFormFieldModule, MatInputModule, MatLabel, MatCheckboxModule],
   templateUrl: './home.html',
   styleUrl: './home.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
