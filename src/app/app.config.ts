@@ -5,11 +5,21 @@ import { routes } from './app.routes';
 import { provideFirebaseApp } from '@angular/fire/app';
 import { getAuth } from 'firebase/auth/web-extension';
 import { provideAuth } from '@angular/fire/auth';
+import { provideHttpClient } from '@angular/common/http';
+import { provideTranslateService } from "@ngx-translate/core";
+import { provideTranslateHttpLoader } from "@ngx-translate/http-loader";
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes),
+    provideHttpClient(),
+    provideTranslateService({
+      loader: provideTranslateHttpLoader({
+        prefix: '/assets/i18n/',
+        suffix: '.json'
+      })
+    }),
     provideFirebaseApp(() => initializeApp({
       apiKey: "AIzaSyDbU4OLAwpBqj9od5QIyjp584cyrwjXXbI",
       authDomain: "del-test-fundesplai.firebaseapp.com",

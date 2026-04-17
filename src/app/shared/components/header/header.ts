@@ -1,6 +1,7 @@
 import { Component, inject, input } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../../services/auth';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-header',
@@ -10,6 +11,8 @@ import { AuthService } from '../../../services/auth';
 })
 export class Header {
 
+  translateService = inject(TranslateService);
+
   titulo = input<string>('');
 
   authService = inject(AuthService);
@@ -18,6 +21,10 @@ export class Header {
   logout() {
     this.authService.logout();
     this.router.navigateByUrl('/login', { replaceUrl: true });
+  }
+
+  changeLanguage(lang: string) {
+    this.translateService.use(lang);
   }
 
 }

@@ -6,10 +6,11 @@ import { PedidoService } from '../../services/pedido.service';
 import { AuthService } from '../../services/auth';
 import { Header } from "../../shared/components/header/header";
 import { PedidoCard } from '../../shared/components/pedido-card/pedido-card';
+import { TranslateDirective } from "@ngx-translate/core";
 
 @Component({
   selector: 'app-home',
-  imports: [ReactiveFormsModule, Header, PedidoCard],
+  imports: [ReactiveFormsModule, Header, PedidoCard, TranslateDirective],
   templateUrl: './home.html',
   styleUrl: './home.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
