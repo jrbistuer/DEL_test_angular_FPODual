@@ -17,6 +17,8 @@ import { HealthModule } from './health/health.module';
       imports: [ConfigModule],
       useFactory: (config: ConfigService) => ({
         uri: config.get<string>('MONGO_URI'),
+        // Disable automatic index rebuilding in production to avoid performance overhead
+        autoIndex: config.get<string>('NODE_ENV') !== 'production',
       }),
       inject: [ConfigService],
     }),
